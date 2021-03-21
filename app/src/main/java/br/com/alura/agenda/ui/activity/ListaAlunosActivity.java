@@ -1,7 +1,6 @@
 package br.com.alura.agenda.ui.activity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +12,14 @@ import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import br.com.alura.agenda.R;
 import br.com.alura.agenda.dao.AlunoDAO;
+import br.com.alura.agenda.database.AgendaDatabase;
+import br.com.alura.agenda.database.dao.RoomAlunoDao;
 import br.com.alura.agenda.model.Aluno;
 import br.com.alura.agenda.ui.adapter.ListaAlunosAdapter;
 
@@ -26,8 +28,11 @@ import static br.com.alura.agenda.ui.activity.ConstantesActivities.CHAVE_ALUNO;
 public class ListaAlunosActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Lista de alunos";
-    private final AlunoDAO dao = new AlunoDAO();
     private ListaAlunosAdapter adapter;
+    private final RoomAlunoDao dao = Room.databaseBuilder(this, AgendaDatabase.class, "agenda.db")
+            .allowMainThreadQueries()
+            .build()
+            .getRoomAlunoDao();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
