@@ -8,13 +8,16 @@ public class ConversorCalendar {
 
     @TypeConverter
     public Long paraLong(Calendar valor) {
-        return valor.getTimeInMillis();
+        if (valor != null) {
+            return valor.getTimeInMillis();
+        }
+        return null;
     }
 
     @TypeConverter
     public Calendar paraCalendar(Long valor) {
         Calendar momentoAtual = Calendar.getInstance();
-        if(valor != null) {
+        if (valor != null) {
             momentoAtual.setTimeInMillis(valor);
         }
         return momentoAtual;
