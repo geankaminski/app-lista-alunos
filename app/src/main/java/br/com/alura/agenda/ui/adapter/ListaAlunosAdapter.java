@@ -50,7 +50,7 @@ public class ListaAlunosAdapter extends BaseAdapter {
         // nome.setText(aluno.getNomeCompleto() + " " + aluno.dataFormatada());
         nome.setText(aluno.getNomeCompleto());
         TextView telefone = view.findViewById(R.id.item_aluno_telefone);
-        telefone.setText(aluno.getTelefone());
+        telefone.setText(aluno.getTelefoneFixo());
     }
 
     private View criaView(ViewGroup viewGroup) {
