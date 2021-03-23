@@ -52,12 +52,11 @@ public class ListaAlunosAdapter extends BaseAdapter {
 
     private void vincula(View view, Aluno aluno) {
         TextView nome = view.findViewById(R.id.item_aluno_nome);
-        // nome.setText(aluno.getNomeCompleto() + " " + aluno.dataFormatada());
         nome.setText(aluno.getNomeCompleto());
         TextView telefone = view.findViewById(R.id.item_aluno_telefone);
 
-        Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno(aluno.getId());
-        telefone.setText(primeiroTelefone.getNumero());
+        //Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno(aluno.getId());
+        //telefone.setText(primeiroTelefone.getNumero());
     }
 
     private View criaView(ViewGroup viewGroup) {
