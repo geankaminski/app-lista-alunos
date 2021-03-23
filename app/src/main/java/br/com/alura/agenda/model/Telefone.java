@@ -19,8 +19,12 @@ public class Telefone {
             childColumns = "alunoId",
             onUpdate = CASCADE,
             onDelete = CASCADE)
-    //@ColumnInfo(name = "aluno_id")
     private int alunoId;
+
+    public Telefone(String numero, TipoTelefone tipo) {
+        this.numero = numero;
+        this.tipo = tipo;
+    }
 
     public int getAlunoId() {
         return alunoId;
@@ -53,4 +57,5 @@ public class Telefone {
     public void setTipo(TipoTelefone tipo) {
         this.tipo = tipo;
     }
+
 }
