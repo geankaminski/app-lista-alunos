@@ -24,9 +24,8 @@ import static br.com.alura.agenda.database.AgendaMigrations.TODAS_MIGRATIONS;
 public abstract class AgendaDatabase extends RoomDatabase {
 
     private static final String NOME_BANCO_DE_DADOS = "agenda.db";
-
-
     public abstract AlunoDAO getAlunoDAO();
+    public abstract TelefoneDAO getTelefoneDAO();
 
     public static AgendaDatabase getInstance(Context context) {
         return Room
@@ -35,6 +34,4 @@ public abstract class AgendaDatabase extends RoomDatabase {
                 .addMigrations(TODAS_MIGRATIONS)
                 .build();
     }
-
-    public abstract TelefoneDAO getTelefoneDAO();
 }
